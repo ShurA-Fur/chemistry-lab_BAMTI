@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화학평형과 평형이동 교육용 시뮬레이션</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <button class="home-link" id="btn-logo" aria-label="처음 화면으로">
+      <span class="eq-mark" aria-hidden="true">⇌</span>
+      <span class="brand-text">평형 실험실</span>
+    </button>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ================= 홈 화면 ================= -->
+  <section id="home-screen" class="screen active">
+    <div class="hero">
+      <h1 class="hero-title">화학평형과 평형이동<br>교육용 시뮬레이션</h1>
+      <p class="hero-sub">직접 시약을 넣고, 온도를 바꾸고, 평형이 움직이는 모습을 눈으로 확인해보자.</p>
+    </div>
+
+    <div class="principle-card">
+      <h2 class="principle-title">르샤틀리에의 원리</h2>
+      <p class="principle-text">
+        평형 상태에서 농도, 온도, 압력이 변하면 평형은 그 변화를
+        <strong>감소시키는 방향</strong>으로 이동한다.
+      </p>
+    </div>
+
+    <div class="experiment-select">
+      <button class="exp-card" id="btn-go-exp1" data-target="exp1-screen">
+        <span class="exp-card-eq">2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O</span>
+        <span class="exp-card-name">실험 1&nbsp;·&nbsp;다이크로뮴산–크로뮴산 평형</span>
+        <span class="exp-card-desc">산과 염기를 넣어 노란색 ↔ 주황색 변화를 관찰한다</span>
+        <span class="exp-card-cta">실험 시작 →</span>
+      </button>
+
+      <button class="exp-card" id="btn-go-exp2" data-target="exp2-screen">
+        <span class="exp-card-eq">[Co(H₂O)₆]²⁺ + 4Cl⁻ ⇌ CoCl₄²⁻ + 6H₂O</span>
+        <span class="exp-card-name">실험 2&nbsp;·&nbsp;염화코발트 평형</span>
+        <span class="exp-card-desc">온도와 염산 농도로 분홍색 ↔ 파란색 변화를 관찰한다</span>
+        <span class="exp-card-cta">실험 시작 →</span>
+      </button>
+    </div>
+
+    <p class="hero-footnote">※ 이 시뮬레이션은 실제 화학 실험을 대체하지 않는 교육용 모델입니다.</p>
+  </section>
+
+  <!-- ================= 실험 1: 다이크로뮴산-크로뮴산 ================= -->
+  <section id="exp1-screen" class="screen">
+    <button class="back-btn" data-target="home-screen">← 처음으로</button>
+
+    <div class="lab-layout">
+
+      <div class="lab-main">
+        <h2 class="lab-title">실험 1 · 다이크로뮴산–크로뮴산 평형</h2>
+        <p class="lab-eq">2CrO₄²⁻ + 2H⁺ &nbsp;⇌&nbsp; Cr₂O₇²⁻ + H₂O</p>
+
+        <div class="beaker-card">
+          <div class="beaker" id="exp1-beaker" aria-label="현재 용액 색">
+            <div class="beaker-liquid" id="exp1-liquid"></div>
+          </div>
+          <div class="beaker-readout">
+            <p class="readout-line">현재 용액 색 : <strong id="exp1-color-label">노란색</strong></p>
+            <p class="readout-line">H⁺ 농도 : <strong id="exp1-h-value">--</strong> M</p>
+            <p class="readout-line">OH⁻ 농도 : <strong id="exp1-oh-value">--</strong> M</p>
+          </div>
+          <div class="shift-arrow" id="exp1-shift-arrow" aria-hidden="true">⇌</div>
+        </div>
+
+        <div class="controls-card">
+          <h3 class="controls-title">시약 추가</h3>
+          <div class="btn-row">
+            <button class="reagent-btn" id="exp1-add-hcl">HCl 추가</button>
+            <button class="reagent-btn" id="exp1-add-naoh">NaOH 추가</button>
+            <button class="reagent-btn" id="exp1-add-water">물 추가</button>
+          </div>
+
+          <div class="slider-block">
+            <label for="exp1-pressure">압력</label>
+            <input type="range" id="exp1-pressure" min="1" max="10" value="1">
+            <span class="slider-value" id="exp1-pressure-value">1 atm</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="lab-explain" id="exp1-explain">
+        <h3 class="explain-title">지금 일어나는 일</h3>
+        <p class="explain-placeholder">버튼을 눌러 실험을 시작해보자.</p>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ================= 실험 2: 염화코발트 ================= -->
+  <section id="exp2-screen" class="screen">
+    <button class="back-btn" data-target="home-screen">← 처음으로</button>
+
+    <div class="lab-layout">
+
+      <div class="lab-main">
+        <h2 class="lab-title">실험 2 · 염화코발트 평형</h2>
+        <p class="lab-eq">[Co(H₂O)₆]²⁺ + 4Cl⁻ &nbsp;⇌&nbsp; CoCl₄²⁻ + 6H₂O</p>
+
+        <div class="beaker-card">
+          <div class="beaker" id="exp2-beaker" aria-label="현재 용액 색">
+            <div class="beaker-liquid" id="exp2-liquid"></div>
+          </div>
+          <div class="beaker-readout">
+            <p class="readout-line">현재 용액 색 : <strong id="exp2-color-label">분홍색</strong></p>
+            <p class="readout-line">온도 : <strong id="exp2-temp-value">25</strong> ℃</p>
+            <p class="readout-line">Cl⁻ 농도 : <strong id="exp2-cl-value">--</strong> M</p>
+          </div>
+          <div class="shift-arrow" id="exp2-shift-arrow" aria-hidden="true">⇌</div>
+        </div>
+
+        <div class="controls-card">
+          <h3 class="controls-title">조건 조절</h3>
+
+          <div class="slider-block">
+            <label for="exp2-temperature">온도</label>
+            <input type="range" id="exp2-temperature" min="0" max="100" value="25">
+            <span class="slider-value" id="exp2-temperature-value">25 ℃</span>
+          </div>
+
+          <div class="btn-row">
+            <button class="reagent-btn" id="exp2-add-hcl">HCl 추가</button>
+            <button class="reagent-btn" id="exp2-add-water">물 추가</button>
+          </div>
+
+          <div class="slider-block">
+            <label for="exp2-pressure">압력</label>
+            <input type="range" id="exp2-pressure" min="1" max="10" value="1">
+            <span class="slider-value" id="exp2-pressure-value">1 atm</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="lab-explain" id="exp2-explain">
+        <h3 class="explain-title">지금 일어나는 일</h3>
+        <p class="explain-placeholder">버튼을 눌러 실험을 시작해보자.</p>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>교육용 시뮬레이션 · 실제 실험을 대체하지 않습니다</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
