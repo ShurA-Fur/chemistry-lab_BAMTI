@@ -206,7 +206,53 @@ button {
   font-size: clamp(1.05rem, 2.4vw, 1.35rem);
   font-weight: 700;
   color: var(--blue-dark);
-  margin: 0 0 24px;
+  margin: 0 0 8px;
+}
+.lab-k-eq {
+  font-family: "SF Mono", "Roboto Mono", Consolas, monospace;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+
+.species-legend {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+.legend-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.legend-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.legend-formula {
+  margin: 0 0 2px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+.legend-desc {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+.legend-note {
+  margin: 8px 0 0;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
 }
 
 .lab-layout {

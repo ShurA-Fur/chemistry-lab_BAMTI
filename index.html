@@ -62,6 +62,25 @@
       <div class="lab-main">
         <h2 class="lab-title">실험 1 · 다이크로뮴산–크로뮴산 평형</h2>
         <p class="lab-eq">2CrO₄²⁻ + 2H⁺ &nbsp;⇌&nbsp; Cr₂O₇²⁻ + H₂O</p>
+        <p class="lab-k-eq">K = [Cr₂O₇²⁻] ⁄ ([CrO₄²⁻]² [H⁺]²) ≈ 1.0 × 10¹⁴ &nbsp;(참고값, 실온 기준)</p>
+
+        <div class="species-legend">
+          <div class="legend-item">
+            <span class="legend-swatch" style="background:#F4C542;"></span>
+            <div>
+              <p class="legend-formula">CrO₄²⁻ (크로뮴산 이온)</p>
+              <p class="legend-desc">그 자체가 노란색을 띠는 이온이다. 염기성(H⁺가 적음)일수록 이 형태가 많아진다.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-swatch" style="background:#F0894B;"></span>
+            <div>
+              <p class="legend-formula">Cr₂O₇²⁻ (다이크로뮴산 이온)</p>
+              <p class="legend-desc">그 자체가 주황색을 띠는 이온이다. 산성(H⁺가 많음)일수록 이 형태가 많아진다.</p>
+            </div>
+          </div>
+          <p class="legend-note">두 이온은 서로 다른 구조를 가져 서로 다른 파장의 빛을 흡수하므로, 두 이온의 비율이 바뀌면 용액 전체의 색이 바뀐다. 용액 색은 두 이온 색의 <strong>혼합 비율</strong>로 결정된다.</p>
+        </div>
 
         <div class="beaker-card">
           <div class="beaker" id="exp1-beaker" aria-label="현재 용액 색">
@@ -69,8 +88,11 @@
           </div>
           <div class="beaker-readout">
             <p class="readout-line">현재 용액 색 : <strong id="exp1-color-label">노란색</strong></p>
+            <p class="readout-line">pH : <strong id="exp1-ph-value">--</strong></p>
             <p class="readout-line">H⁺ 농도 : <strong id="exp1-h-value">--</strong> M</p>
-            <p class="readout-line">OH⁻ 농도 : <strong id="exp1-oh-value">--</strong> M</p>
+            <p class="readout-line">전체 Cr 농도 (일정) : <strong>0.100</strong> M</p>
+            <p class="readout-line">[CrO₄²⁻] : <strong id="exp1-cro4-value">--</strong> M</p>
+            <p class="readout-line">[Cr₂O₇²⁻] : <strong id="exp1-cr2o7-value">--</strong> M</p>
           </div>
           <div class="shift-arrow" id="exp1-shift-arrow" aria-hidden="true">⇌</div>
         </div>
@@ -108,6 +130,25 @@
       <div class="lab-main">
         <h2 class="lab-title">실험 2 · 염화코발트 평형</h2>
         <p class="lab-eq">[Co(H₂O)₆]²⁺ + 4Cl⁻ &nbsp;⇌&nbsp; CoCl₄²⁻ + 6H₂O</p>
+        <p class="lab-k-eq">K(T) = [CoCl₄²⁻] ⁄ ([Co(H₂O)₆²⁺][Cl⁻]⁴) &nbsp;(흡열 반응 → 온도가 높을수록 K 증가)</p>
+
+        <div class="species-legend">
+          <div class="legend-item">
+            <span class="legend-swatch" style="background:#F2A6C6;"></span>
+            <div>
+              <p class="legend-formula">[Co(H₂O)₆]²⁺ (헥사아쿠아코발트(Ⅱ) 이온)</p>
+              <p class="legend-desc">물 분자 6개가 정팔면체로 둘러싼 착이온으로, 분홍색을 띤다.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-swatch" style="background:#5FB6E8;"></span>
+            <div>
+              <p class="legend-formula">CoCl₄²⁻ (테트라클로로코발트(Ⅱ) 이온)</p>
+              <p class="legend-desc">Cl⁻ 4개가 정사면체로 둘러싼 착이온으로, 파란색을 띤다.</p>
+            </div>
+          </div>
+          <p class="legend-note">배위자(리간드)가 H₂O에서 Cl⁻로 바뀌고 구조가 팔면체→사면체로 바뀌면서 코발트 이온이 흡수하는 빛의 파장이 달라진다. 그래서 두 착이온의 비율이 바뀌면 색이 분홍↔파랑으로 변한다.</p>
+        </div>
 
         <div class="beaker-card">
           <div class="beaker" id="exp2-beaker" aria-label="현재 용액 색">
@@ -116,7 +157,9 @@
           <div class="beaker-readout">
             <p class="readout-line">현재 용액 색 : <strong id="exp2-color-label">분홍색</strong></p>
             <p class="readout-line">온도 : <strong id="exp2-temp-value">25</strong> ℃</p>
-            <p class="readout-line">Cl⁻ 농도 : <strong id="exp2-cl-value">--</strong> M</p>
+            <p class="readout-line">[Cl⁻] : <strong id="exp2-cl-value">--</strong> M</p>
+            <p class="readout-line">K(T) : <strong id="exp2-k-value">--</strong></p>
+            <p class="readout-line">CoCl₄²⁻ 비율 : <strong id="exp2-fraction-value">--</strong> %</p>
           </div>
           <div class="shift-arrow" id="exp2-shift-arrow" aria-hidden="true">⇌</div>
         </div>
