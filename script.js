@@ -203,10 +203,28 @@ function exp1AddWater() {
   ]);
 }
 
+function exp1Reset() {
+  exp1State.pH = 7;
+  const pressureSlider = document.getElementById("exp1-pressure");
+  const pressureDisplay = document.getElementById("exp1-pressure-value");
+  pressureSlider.value = 1;
+  pressureDisplay.textContent = "1 atm";
+
+  exp1Render();
+  EXP1_EL.arrow.classList.remove("point-left", "point-right");
+
+  const panel = document.getElementById("exp1-explain");
+  panel.innerHTML = `
+    <h3 class="explain-title">지금 일어나는 일</h3>
+    <p class="explain-placeholder">버튼을 눌러 실험을 시작해보자.</p>
+  `;
+}
+
 document.getElementById("exp1-add-hcl").addEventListener("click", exp1AddHCl);
 document.getElementById("exp1-add-naoh").addEventListener("click", exp1AddNaOH);
 document.getElementById("exp1-add-water").addEventListener("click", exp1AddWater);
 document.getElementById("exp1-pressure").addEventListener("input", () => renderPressureNote("exp1-explain"));
+document.getElementById("exp1-reset").addEventListener("click", exp1Reset);
 
 exp1Render();
 
@@ -329,11 +347,36 @@ function exp2TemperatureChanged(value) {
   }
 }
 
+function exp2Reset() {
+  exp2State.temperature = 25;
+  exp2State.clConc = 0.10;
+
+  const tempSlider = document.getElementById("exp2-temperature");
+  const tempDisplay = document.getElementById("exp2-temperature-value");
+  tempSlider.value = 25;
+  tempDisplay.textContent = "25 ℃";
+
+  const pressureSlider = document.getElementById("exp2-pressure");
+  const pressureDisplay = document.getElementById("exp2-pressure-value");
+  pressureSlider.value = 1;
+  pressureDisplay.textContent = "1 atm";
+
+  exp2Render();
+  EXP2_EL.arrow.classList.remove("point-left", "point-right");
+
+  const panel = document.getElementById("exp2-explain");
+  panel.innerHTML = `
+    <h3 class="explain-title">지금 일어나는 일</h3>
+    <p class="explain-placeholder">버튼을 눌러 실험을 시작해보자.</p>
+  `;
+}
+
 document.getElementById("exp2-add-hcl").addEventListener("click", exp2AddHCl);
 document.getElementById("exp2-add-water").addEventListener("click", exp2AddWater);
 document.getElementById("exp2-temperature").addEventListener("input", (e) => {
   exp2TemperatureChanged(Number(e.target.value));
 });
 document.getElementById("exp2-pressure").addEventListener("input", () => renderPressureNote("exp2-explain"));
+document.getElementById("exp2-reset").addEventListener("click", exp2Reset);
 
 exp2Render();
